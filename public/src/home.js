@@ -1,15 +1,19 @@
 function getTotalBooksCount(books) {
   return books.length;
 }
+
 function getTotalAccountsCount(accounts) {
   return accounts.length;
 }
+
 function getBooksBorrowedCount(books) {
   let borrowedBooks = books.reduce((acc, book) => {
     return acc + !book.borrows[0].returned;
   }, 0);
   return borrowedBooks;
 }
+
+//This is my helper function called in getMostCommonGenres
 function sortObj(obj){
   const keys = Object.keys(obj);
   return keys.sort((keyA, keyB) => {
@@ -22,6 +26,7 @@ function sortObj(obj){
     }
   });
 }
+
 function getMostCommonGenres(books) {
  const count = books.reduce((acc, { genre }) => {
   if(acc[genre]) {
